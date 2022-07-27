@@ -18,11 +18,11 @@ Une partie : Représente la partie de tennis en cours.
 Les joueurs : Il possède un nom.
 
 ### Les besoins
-* Un utilisateur peut créer une nouvelle partie. -> OK
-* Un utilisateur peut choisir les 2 joueurs qui joueront la partie.
-* Au début de la partie les deux joueurs ont 0 points.
-* Au début de la partie les deux joueurs ont 0 jeux gagnés.
-* Au début de la partie les deux joueurs ont 0 sets gagnés.
+* Un utilisateur peut créer une nouvelle partie.                            -> OK
+* Un utilisateur peut choisir les 2 joueurs qui joueront la partie.         -> Ok
+* Au début de la partie les deux joueurs ont 0 points.                      -> OK
+* Au début de la partie les deux joueurs ont 0 jeux gagnés.                 -> OK
+* Au début de la partie les deux joueurs ont 0 sets gagnés.                 -> Ok
 
 * L'utilisateur peut notifier qu'un Joueur a gagné un point.
 * Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.
