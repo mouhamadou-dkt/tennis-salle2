@@ -64,10 +64,72 @@ public class MainTest {
 	public void attribuerPointJoueur_Return15() {
 		Joueur joueur = new Joueur("joueur1"); 
 		//
-		int result = Main.attribuerPoint(joueur);
+		String result = Main.attribuerPoint(joueur);
 		//Then
-		assertEquals(15, result);
+		assertEquals("15", result);
 	}
 	
+	//Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.
+	@Test
+	public void attribuerPointJoueur_Return30() {
+		//Given
+		Joueur joueur = new Joueur("joueur1"); 
+		joueur.setScorePoint("15");
+		//When
+		String result = Main.attribuerPoint(joueur);
+		//Then
+		assertEquals("30", result);
+	}
 	
+	@Test
+	public void attribuerPointJoueur_Return40() {
+		//Given
+		Joueur joueur = new Joueur("joueur1"); 
+		joueur.setScorePoint("30");
+		//When
+		String result = Main.attribuerPoint(joueur);
+		//Then
+		assertEquals("40", result);
+	}
+	
+	//Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.
+	@Test
+	public void attribuerPointJoueur_ReturnAvantage() {
+		//Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("40");
+		
+		//When
+		String result = Main.attribuerPoint(joueur1, joueur2);
+		
+		//Then
+		assertEquals("A", result);
+		
+	}
+	
+	//Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd. 
+	@Test
+	public void attribuerPointJoueurPerdant_Return40AprèsAvantage() {
+		//Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("A");
+		
+		//When
+		System.out.println(joueur2.getScorePoint());
+		String result = Main.attribuerPoint(joueur1, joueur2);
+		System.out.println(joueur2.getScorePoint());
+		
+		String result2 =  joueur2.getScorePoint();
+		
+		//Then
+		assertEquals("40", result);
+		assertEquals("40", result2);
+		
+	}
+	
+	//Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.
 }

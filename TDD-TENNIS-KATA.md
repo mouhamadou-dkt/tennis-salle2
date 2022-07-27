@@ -25,9 +25,9 @@ Les joueurs : Il possède un nom.
 * Au début de la partie les deux joueurs ont 0 sets gagnés.                 -> Ok
 
 * L'utilisateur peut notifier qu'un Joueur a gagné un point.
-* Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.
-* Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.
-* Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd.
+* Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.                                             -> OK
+* Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.    -> OK
+* Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd.                                    -> OK
 * Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.
 
 * Quand un jeu est gagné, alors les deux joueurs retournent à 0 point.

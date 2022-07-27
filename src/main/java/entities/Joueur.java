@@ -3,19 +3,19 @@ package entities;
 public class Joueur {
 
 	private String nom;
-	private int scorePoint;
+	private String scorePoint;
 	private int scoreJeu;
 	private int scoreSet;
 
 	public Joueur() {
-		this.scorePoint = 0;
+		this.scorePoint = "0";
 		this.scoreJeu = 0;
 		this.scoreSet = 0;
 	}
 	
 	public Joueur(String nom) {
 		this.nom = nom;
-		this.scorePoint = 0;
+		this.scorePoint = "0";
 		this.scoreJeu = 0;
 		this.scoreSet = 0;
 	}
@@ -28,11 +28,11 @@ public class Joueur {
 		this.nom = nom;
 	}
 	
-	public int getScorePoint() {
+	public String getScorePoint() {
 		return scorePoint;
 	}
 
-	public void setScorePoint(int scorePoint) {
+	public void setScorePoint(String scorePoint) {
 		this.scorePoint = scorePoint;
 	}
 

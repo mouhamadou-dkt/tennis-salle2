@@ -39,9 +39,42 @@ public class Main {
 		return scoreSetJoueur1 + " - " + scoreSetJoueur2;
 	}
 
-	public static int attribuerPoint(Joueur joueur) {
-		joueur.setScorePoint(15);
-		return joueur.getScorePoint();
+	public static String attribuerPoint(Joueur joueurGagnant, Joueur... joueurPerdant) {
+		String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
+		String scorePointJoueurPerdant = "";
+		for (Joueur j: joueurPerdant) {
+			scorePointJoueurPerdant = j.getScorePoint();
+		}
+				
+		switch (scorePointJoueurGagnant) {
+		case "0":
+			joueurGagnant.setScorePoint("15");
+			break;
+		
+		case "15":
+			joueurGagnant.setScorePoint("30");
+			break;
+		
+		case "30":
+			joueurGagnant.setScorePoint("40");
+			break;
+			
+		case "40":
+			if (scorePointJoueurPerdant == "40") {
+				joueurGagnant.setScorePoint("A");
+			}
+			else if (scorePointJoueurPerdant == "A") {
+				for (Joueur j: joueurPerdant) {
+					j.setScorePoint("40");
+				}
+			}
+			break;
+			
+		//case "A":
+			
+		}
+		
+		return joueurGagnant.getScorePoint();
 	}
 	
 }
