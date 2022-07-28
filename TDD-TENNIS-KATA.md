@@ -28,9 +28,9 @@ Les joueurs : Il possède un nom.
 * Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.                                             -> OK
 * Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.    -> OK
 * Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd.                                    -> OK
-* Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.
+* Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.                               -> OK
 
-* Quand un jeu est gagné, alors les deux joueurs retournent à 0 point.
+* Quand un jeu est gagné, alors les deux joueurs retournent à 0 point.                                                  -> OK
 * Quand un joueur arrive à gagner 6 jeux et que son adversaire 4 ou moins jeux gagnés, alors le joueur gagne un set.
 * Quand les deux joueurs ont 5 points alors faut avoir 2 points d'avance et 7 jeux pour gagner le set.
 

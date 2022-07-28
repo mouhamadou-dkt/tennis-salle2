@@ -69,9 +69,16 @@ public class Main {
 				}
 			}
 			else {
+				// Ajout jeu au joueur gagnant
 				int jeu = joueurGagnant.getScoreJeu();
 				jeu++;
 				joueurGagnant.setScoreJeu(jeu);
+				
+				// Reset des scores point
+				joueurGagnant.setScorePoint("0");
+				for (Joueur j: joueurPerdant) {
+					j.setScorePoint("0");
+				}
 			}
 			break;
 			

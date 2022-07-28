@@ -126,7 +126,7 @@ public class MainTest {
 		joueur2.setScorePoint("A");
 		
 		//When
-		System.out.println(joueur2.getScorePoint()); 
+		//System.out.println(joueur2.getScorePoint()); 
 		Main.attribuerPoint(joueur1, joueur2);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
@@ -153,4 +153,37 @@ public class MainTest {
 		//Then
 		assertEquals("1 - 0", result);
 	}
+	
+	// Quand un jeu est gagné, alors les deux joueurs retournent à 0 point.
+	@Test
+	public void resetPointAprèsJeu() {
+		//Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("15");
+		
+		//When
+		//String result = Main.attribuerJeu(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		
+		//Then
+		assertEquals("0 - 0", result);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
