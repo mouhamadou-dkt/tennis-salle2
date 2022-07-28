@@ -2,6 +2,7 @@
 import org.junit.jupiter.api.Test;
 
 import entities.Joueur;
+import entities.Partie;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -62,10 +63,11 @@ public class MainTest {
 	// L'utilisateur peut notifier qu'un Joueur a gagné un point.
 	@Test
 	public void attribuerPointJoueur_Return15() {
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1"); 
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
@@ -76,11 +78,12 @@ public class MainTest {
 	@Test
 	public void attribuerPointJoueur_Return30() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1"); 
 		joueur1.setScorePoint("15");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());//Then
 		assertEquals("30 - 0", result);
 	}
@@ -88,11 +91,12 @@ public class MainTest {
 	@Test
 	public void attribuerPointJoueur_Return40() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1"); 
 		joueur1.setScorePoint("30");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		//Then
 		assertEquals("40 - 0", result);
@@ -102,13 +106,14 @@ public class MainTest {
 	@Test
 	public void attribuerPointJoueur_ReturnAvantage() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScorePoint("40");
 		joueur2.setScorePoint("40");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2,partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
@@ -120,6 +125,7 @@ public class MainTest {
 	@Test
 	public void attribuerPointJoueurPerdant_Return40ApresAvantage() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScorePoint("40");
@@ -127,7 +133,7 @@ public class MainTest {
 		
 		//When
 		//System.out.println(joueur2.getScorePoint()); 
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
@@ -139,6 +145,7 @@ public class MainTest {
 	@Test
 	public void attribuerJeuJoueurGagnant_ReturnJeuApresAvantage() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScorePoint("A");
@@ -146,7 +153,7 @@ public class MainTest {
 		
 		//When
 		//String result = Main.attribuerJeu(joueur1, joueur2);
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
 		
 		
@@ -158,13 +165,14 @@ public class MainTest {
 	@Test
 	public void resetPointAprèsJeu() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScorePoint("40");
 		joueur2.setScorePoint("15");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
@@ -175,6 +183,7 @@ public class MainTest {
 	@Test
 	public void attribuerSetJoueurG_6_JoueurP_4() {
 		//Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScoreJeu(5);
@@ -183,7 +192,7 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		
 		//Then
@@ -195,6 +204,7 @@ public class MainTest {
 	@Test
 	public void attribuerSetJoueurG_6_JoueurP_5() {
 		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScoreJeu(6);
@@ -203,11 +213,32 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2, partie);
 		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		
 		// Then
 		assertEquals("1 - 0", result);
+	}
+	
+	// Quand les deux joueurs ont 6 jeux gagné, alors on passe en jeu decisif.
+	// 6 - 6 => jeu décisif
+	@Test
+	public void passageEnModeJeuDecisif() {
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(5);
+		joueur2.setScoreJeu(6);
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("15");
+		
+		// Then
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		boolean result = partie.isModeDecisif();
+		
+		// When
+		assertEquals(true, result);
 	}
 	
 	

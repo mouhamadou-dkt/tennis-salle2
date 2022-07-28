@@ -39,7 +39,7 @@ public class Main {
 		return scoreSetJoueur1 + " - " + scoreSetJoueur2;
 	}
 
-	public static void attribuerPoint(Joueur joueurGagnant, Joueur joueurPerdant) {
+	public static void attribuerPoint(Joueur joueurGagnant, Joueur joueurPerdant, Partie partie) {
 		String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
 		String scorePointJoueurPerdant = joueurPerdant.getScorePoint();
 				
@@ -65,9 +65,9 @@ public class Main {
 			}
 			else {
 				// Attribution jeu au joueur gagnant
-				int jeu = joueurGagnant.getScoreJeu(); // 6
+				int jeu = joueurGagnant.getScoreJeu(); // 5
 				jeu++;
-				joueurGagnant.setScoreJeu(jeu); // 7
+				joueurGagnant.setScoreJeu(jeu); // 6
 				
 				// Attribution set au joueur gagnant et reset des scores jeu
 				if ((joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() <= 4) 
@@ -80,6 +80,9 @@ public class Main {
 					// Reset des scores jeu
 					joueurGagnant.setScoreJeu(0);
 					joueurPerdant.setScoreJeu(0);
+				}
+				else if (joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() == 6) {
+					partie.setModeDecisif(true);
 				}
 					
 				// Reset des scores point
