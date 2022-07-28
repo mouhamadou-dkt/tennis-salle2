@@ -457,6 +457,29 @@ public class MainTest {
 		//Then
 		assertEquals("30 - 40", result);
 	}
+
+	// L'utilisateur doit être avertie que la partie est finie.
+	@Test
+	public void attributionPartieTerminer(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("30");
+		joueur1.setScoreJeu(5);
+		joueur2.setScoreJeu(4);
+		joueur1.setScoreSet(1);
+		joueur2.setScoreSet(1);
+
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.affichePartie(joueur1, joueur2, partie);
+
+		//Then
+		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+
+	}
 	
 	
 	
