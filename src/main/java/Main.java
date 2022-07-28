@@ -56,85 +56,91 @@ public class Main {
 	}
 
 	public static void attribuerPoint(Joueur joueurGagnant, Joueur joueurPerdant, Partie partie) {
-		String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
-		String scorePointJoueurPerdant = joueurPerdant.getScorePoint();
-		
-		// Mode jeu classique
-		if (!partie.isModeDecisif()) {
-			switch (scorePointJoueurGagnant) {
-			case "0":
-				joueurGagnant.setScorePoint("15");
-				break;
-			
-			case "15":
-				joueurGagnant.setScorePoint("30");
-				break;
-			
-			case "30":
-				joueurGagnant.setScorePoint("40");
-				break;
-				
-			case "40":
-				if (scorePointJoueurPerdant == "40") {
-					joueurGagnant.setScorePoint("A");
-				}
-				else if (scorePointJoueurPerdant == "A") {				
-						joueurPerdant.setScorePoint("40");
-				}
-				else {
-					// Attribution jeu au joueur gagnant
-					int jeu = joueurGagnant.getScoreJeu(); // 5
-					jeu++;
-					joueurGagnant.setScoreJeu(jeu); // 6
-					
-					// Attribution set au joueur gagnant et reset des scores jeu
-					if ((joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() <= 4) 
-							|| (joueurGagnant.getScoreJeu() == 7 && joueurPerdant.getScoreJeu() == 5)) {
-						// Attribution set
-						int set = joueurGagnant.getScoreSet();
-						set ++;
-						joueurGagnant.setScoreSet(set);
-						
-						// Reset des scores jeu
-						joueurGagnant.setScoreJeu(0);
-						joueurPerdant.setScoreJeu(0);
+
+		if (!partie.isPartieWin()){
+
+			String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
+			String scorePointJoueurPerdant = joueurPerdant.getScorePoint();
+
+			// Mode jeu classique
+			if (!partie.isModeDecisif()) {
+				switch (scorePointJoueurGagnant) {
+				case "0":
+					joueurGagnant.setScorePoint("15");
+					break;
+
+				case "15":
+					joueurGagnant.setScorePoint("30");
+					break;
+
+				case "30":
+					joueurGagnant.setScorePoint("40");
+					break;
+
+				case "40":
+					if (scorePointJoueurPerdant == "40") {
+						joueurGagnant.setScorePoint("A");
 					}
-					else if (joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() == 6) {
-						partie.setModeDecisif(true);
+					else if (scorePointJoueurPerdant == "A") {
+							joueurPerdant.setScorePoint("40");
 					}
-						
-					// Reset des scores point
-					joueurGagnant.setScorePoint("0");
-					joueurPerdant.setScorePoint("0");
-				}
-				break;
-				
-			case "A":
-				int jeu = joueurGagnant.getScoreJeu();
-				jeu++;
-				joueurGagnant.setScoreJeu(jeu);
-			}
-		}
-		
-		//Mode jeu décisif
-		else {
-			int pointDecisif = joueurGagnant.getScorePointDecisif();
-			
-			pointDecisif ++;
-			joueurGagnant.setScorePointDecisif(pointDecisif);
-			
-			if (joueurGagnant.getScorePointDecisif() >= 7) {
-				int ecart = joueurGagnant.getScorePointDecisif() - joueurPerdant.getScorePointDecisif();
-				if (ecart >= 2) {
+					else {
+						// Attribution jeu au joueur gagnant
+						int jeu = joueurGagnant.getScoreJeu(); // 5
+						jeu++;
+						joueurGagnant.setScoreJeu(jeu); // 6
+
+						// Attribution set au joueur gagnant et reset des scores jeu
+						if ((joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() <= 4)
+								|| (joueurGagnant.getScoreJeu() == 7 && joueurPerdant.getScoreJeu() == 5)) {
+							// Attribution set
+							int set = joueurGagnant.getScoreSet();
+							set ++;
+							joueurGagnant.setScoreSet(set);
+
+							// Reset des scores jeu
+							joueurGagnant.setScoreJeu(0);
+							joueurPerdant.setScoreJeu(0);
+						}
+						else if (joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() == 6) {
+							partie.setModeDecisif(true);
+						}
+
+						// Reset des scores point
+						joueurGagnant.setScorePoint("0");
+						joueurPerdant.setScorePoint("0");
+					}
+					break;
+
+				case "A":
 					int jeu = joueurGagnant.getScoreJeu();
-					int set = joueurGagnant.getScoreSet();
-					jeu ++;
-					set ++;
+					jeu++;
 					joueurGagnant.setScoreJeu(jeu);
-					joueurGagnant.setScoreSet(set);
 				}
+
 			}
-			
+		
+			//Mode jeu décisif
+			else {
+				int pointDecisif = joueurGagnant.getScorePointDecisif();
+
+				pointDecisif ++;
+				joueurGagnant.setScorePointDecisif(pointDecisif);
+
+				if (joueurGagnant.getScorePointDecisif() >= 7) {
+					int ecart = joueurGagnant.getScorePointDecisif() - joueurPerdant.getScorePointDecisif();
+					if (ecart >= 2) {
+						int jeu = joueurGagnant.getScoreJeu();
+						int set = joueurGagnant.getScoreSet();
+						jeu ++;
+						set ++;
+						joueurGagnant.setScoreJeu(jeu);
+						joueurGagnant.setScoreSet(set);
+					}
+				}
+
+			}
+
 		}
 	}
 	

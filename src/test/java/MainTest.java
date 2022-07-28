@@ -438,6 +438,25 @@ public class MainTest {
 		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
 
 	}
+
+	// Quand un joueur a gagné, il n'est plus possible de changer les scores.
+	@Test
+	public void nonAttributionPoint_apresPartieTerminer(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		partie.setPartieWin(true);
+		joueur1.setScorePoint("30");
+		joueur2.setScorePoint("40");
+
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+
+		//Then
+		assertEquals("30 - 40", result);
+	}
 	
 	
 	
