@@ -39,7 +39,7 @@ Les joueurs : Il possède un nom.
 * Si un joueur gagne un point pendant un jeu decisif il passe de 0 à 1, puis 2, ... jusqu'à 7.  -> OK
 * Il faut avoir deux points d'avance pour gagner le jeu et donc le set.                         -> OK
 
-* Le premier joueur a 2 sets gagnés gagne la partie.
+* Le premier joueur a 2 sets gagnés gagne la partie.                      -> OK
 * Quand un joueur a gagné, il n'est plus possible de changer les scores.
 * L'utilisateur doit être avertie que la partie est finie.
 

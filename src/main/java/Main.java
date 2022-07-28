@@ -43,6 +43,18 @@ public class Main {
 		return scorePointDecisifJoueur1 + " - " + scorePointDecisifJoueur2;
 	}
 
+	public static String affichePartie(Joueur joueur1, Joueur joueur2, Partie partie){
+		if (joueur1.getScoreSet() == 2){
+			partie.setPartieWin(true);
+			return "Partie gagnée par: " + joueur1.getNom();
+		}
+		if(joueur2.getScoreSet() == 2){
+			partie.setPartieWin(true);
+			return "Partie gagnée par: " + joueur2.getNom();
+		}
+		return "Partie en cours.";
+	}
+
 	public static void attribuerPoint(Joueur joueurGagnant, Joueur joueurPerdant, Partie partie) {
 		String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
 		String scorePointJoueurPerdant = joueurPerdant.getScorePoint();

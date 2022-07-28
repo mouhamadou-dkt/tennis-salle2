@@ -349,7 +349,95 @@ public class MainTest {
 		assertEquals("0 - 0", result3); // Pas de Set
 	}
 	
-	
+	// Le premier joueur a 2 sets gagnés gagne la partie.
+	@Test
+	public void attributionPartieJoueur1_2sets(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("30");
+		joueur1.setScoreJeu(5);
+		joueur2.setScoreJeu(4);
+		joueur1.setScoreSet(1);
+		joueur2.setScoreSet(1);
+
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.affichePartie(joueur1, joueur2, partie);
+
+		//Then
+		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+
+	}
+
+	@Test
+	public void attributionPartieJoueur2_2sets(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("30");
+		joueur2.setScorePoint("40");
+		joueur1.setScoreJeu(4);
+		joueur2.setScoreJeu(5);
+		joueur1.setScoreSet(1);
+		joueur2.setScoreSet(1);
+
+		// When
+		Main.attribuerPoint(joueur2, joueur1,  partie);
+		String result = Main.affichePartie(joueur1, joueur2, partie);
+
+		//Then
+		assertEquals("Partie gagnée par: " + joueur2.getNom(), result);
+
+	}
+
+	@Test
+	public void attributionPartieNonTerminer(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("30");
+		joueur2.setScorePoint("40");
+		joueur1.setScoreJeu(4);
+		joueur2.setScoreJeu(5);
+
+
+		// When
+		Main.attribuerPoint(joueur2, joueur1, partie);
+		String result = Main.affichePartie(joueur1, joueur2, partie);
+
+		//Then
+		assertEquals("Partie en cours.", result);
+
+	}
+
+	@Test
+	public void attributionPartiePointDecisif_2sets(){
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		partie.setModeDecisif(true);
+		joueur1.setScorePointDecisif(7);
+		joueur2.setScorePointDecisif(6);
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(6);
+		joueur1.setScoreSet(1);
+		joueur2.setScoreSet(1);
+
+
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.affichePartie(joueur1, joueur2, partie);
+
+		//Then
+		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+
+	}
 	
 	
 	
