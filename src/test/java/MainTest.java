@@ -30,8 +30,8 @@ public class MainTest {
 	
 	@Test
 	public void afficheScorePointDebut() {
-		int scorePointJoueur1 = 0;
-		int scorePointJoueur2 = 0;
+		String scorePointJoueur1 = "0";
+		String scorePointJoueur2 = "0";
 		//When
 		String result = Main.afficheScorePoint(scorePointJoueur1, scorePointJoueur2);
 		//Then
@@ -62,34 +62,40 @@ public class MainTest {
 	// L'utilisateur peut notifier qu'un Joueur a gagné un point.
 	@Test
 	public void attribuerPointJoueur_Return15() {
-		Joueur joueur = new Joueur("joueur1"); 
-		//
-		String result = Main.attribuerPoint(joueur);
+		Joueur joueur1 = new Joueur("joueur1"); 
+		Joueur joueur2 = new Joueur("joueur2");
+		//When
+		Main.attribuerPoint(joueur1);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		
 		//Then
-		assertEquals("15", result);
+		assertEquals("15 - 0", result);
 	}
 	
-	//Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.
+	//Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à  30. Puis de 30 à 40.
 	@Test
 	public void attribuerPointJoueur_Return30() {
 		//Given
-		Joueur joueur = new Joueur("joueur1"); 
-		joueur.setScorePoint("15");
+		Joueur joueur1 = new Joueur("joueur1"); 
+		joueur1.setScorePoint("15");
+		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		String result = Main.attribuerPoint(joueur);
-		//Then
-		assertEquals("30", result);
+		Main.attribuerPoint(joueur1);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());//Then
+		assertEquals("30 - 0", result);
 	}
 	
 	@Test
 	public void attribuerPointJoueur_Return40() {
 		//Given
-		Joueur joueur = new Joueur("joueur1"); 
-		joueur.setScorePoint("30");
+		Joueur joueur1 = new Joueur("joueur1"); 
+		joueur1.setScorePoint("30");
+		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		String result = Main.attribuerPoint(joueur);
+		Main.attribuerPoint(joueur1);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		//Then
-		assertEquals("40", result);
+		assertEquals("40 - 0", result);
 	}
 	
 	//Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.
@@ -102,16 +108,17 @@ public class MainTest {
 		joueur2.setScorePoint("40");
 		
 		//When
-		String result = Main.attribuerPoint(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
-		assertEquals("A", result);
+		assertEquals("A - 40", result);
 		
 	}
 	
 	//Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd. 
 	@Test
-	public void attribuerPointJoueurPerdant_Return40AprèsAvantage() {
+	public void attribuerPointJoueurPerdant_Return40ApresAvantage() {
 		//Given
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
@@ -119,17 +126,31 @@ public class MainTest {
 		joueur2.setScorePoint("A");
 		
 		//When
-		System.out.println(joueur2.getScorePoint());
-		String result = Main.attribuerPoint(joueur1, joueur2);
-		System.out.println(joueur2.getScorePoint());
-		
-		String result2 =  joueur2.getScorePoint();
+		System.out.println(joueur2.getScorePoint()); 
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
-		assertEquals("40", result);
-		assertEquals("40", result2);
+		assertEquals("40 - 40", result);
 		
 	}
 	
 	//Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.
+	@Test
+	public void attribuerJeuJoueurGagnant_ReturnJeuApresAvantage() {
+		//Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScorePoint("A");
+		joueur2.setScorePoint("40");
+		
+		//When
+		//String result = Main.attribuerJeu(joueur1, joueur2);
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		
+		
+		//Then
+		assertEquals("1 - 0", result);
+	}
 }

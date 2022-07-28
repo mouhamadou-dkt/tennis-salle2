@@ -24,7 +24,7 @@ public class Main {
 		return joueur1 + " - " + joueur2;
 	}
 
-	public static String afficheScorePoint(int scorePointJoueur1, int scorePointJoueur2) {
+	public static String afficheScorePoint(String scorePointJoueur1, String scorePointJoueur2) {
 		
 		return scorePointJoueur1 + " - " + scorePointJoueur2;
 	}
@@ -39,7 +39,7 @@ public class Main {
 		return scoreSetJoueur1 + " - " + scoreSetJoueur2;
 	}
 
-	public static String attribuerPoint(Joueur joueurGagnant, Joueur... joueurPerdant) {
+	public static void attribuerPoint(Joueur joueurGagnant, Joueur... joueurPerdant) {
 		String scorePointJoueurGagnant = joueurGagnant.getScorePoint();
 		String scorePointJoueurPerdant = "";
 		for (Joueur j: joueurPerdant) {
@@ -68,13 +68,18 @@ public class Main {
 					j.setScorePoint("40");
 				}
 			}
+			else {
+				int jeu = joueurGagnant.getScoreJeu();
+				jeu++;
+				joueurGagnant.setScoreJeu(jeu);
+			}
 			break;
 			
-		//case "A":
-			
+		case "A":
+			int jeu = joueurGagnant.getScoreJeu();
+			jeu++;
+			joueurGagnant.setScoreJeu(jeu);
 		}
-		
-		return joueurGagnant.getScorePoint();
 	}
 	
 }
