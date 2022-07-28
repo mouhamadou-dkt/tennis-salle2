@@ -4,11 +4,13 @@ public class Joueur {
 
 	private String nom;
 	private String scorePoint;
+	private int scorePointDecisif;
 	private int scoreJeu;
 	private int scoreSet;
 
 	public Joueur() {
 		this.scorePoint = "0";
+		this.scorePointDecisif = 0;
 		this.scoreJeu = 0;
 		this.scoreSet = 0;
 	}
@@ -16,6 +18,7 @@ public class Joueur {
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.scorePoint = "0";
+		this.scorePointDecisif = 0;
 		this.scoreJeu = 0;
 		this.scoreSet = 0;
 	}
@@ -50,6 +53,14 @@ public class Joueur {
 
 	public void setScoreSet(int scoreSet) {
 		this.scoreSet = scoreSet;
+	}
+
+	public int getScorePointDecisif() {
+		return scorePointDecisif;
+	}
+
+	public void setScorePointDecisif(int scorePointDecisif) {
+		this.scorePointDecisif = scorePointDecisif;
 	}
 	
 }
