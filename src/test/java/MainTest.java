@@ -13,7 +13,7 @@ public class MainTest {
 		// Given 
 		
 		// When
-		String result =  Main.creationPartie("Partie créée");
+		String result =  CompteurDeScoreTennis.creationPartie("Partie créée");
 		// Then 
 		assertEquals("Partie créée", result);
 	}
@@ -24,7 +24,7 @@ public class MainTest {
 		String joueur1 = "player1";
 		String joueur2 = "player2";
 		//When
-		String result = Main.choixJoueurs(joueur1, joueur2);
+		String result = CompteurDeScoreTennis.choixJoueurs(joueur1, joueur2);
 		//Then
 		assertEquals("player1 - player2", result);
 	}
@@ -34,7 +34,7 @@ public class MainTest {
 		String scorePointJoueur1 = "0";
 		String scorePointJoueur2 = "0";
 		//When
-		String result = Main.afficheScorePoint(scorePointJoueur1, scorePointJoueur2);
+		String result = CompteurDeScoreTennis.afficheScorePoint(scorePointJoueur1, scorePointJoueur2);
 		//Then
 		assertEquals("0 - 0", result);
 	}
@@ -44,7 +44,7 @@ public class MainTest {
 		int scoreJeuJoueur1 = 0;
 		int scoreJeuJoueur2 = 0;
 		//When
-		String result = Main.afficheScoreJeu(scoreJeuJoueur1, scoreJeuJoueur2);
+		String result = CompteurDeScoreTennis.afficheScoreJeu(scoreJeuJoueur1, scoreJeuJoueur2);
 		//Then
 		assertEquals("0 - 0", result);
 	}
@@ -55,7 +55,7 @@ public class MainTest {
 		int scoreSetJoueur1 = 0;
 		int scoreSetJoueur2 = 0;
 		//When
-		String result = Main.afficheScoreSet(scoreSetJoueur1, scoreSetJoueur2);
+		String result = CompteurDeScoreTennis.afficheScoreSet(scoreSetJoueur1, scoreSetJoueur2);
 		//Then
 		assertEquals("0 - 0", result);
 	}
@@ -67,8 +67,8 @@ public class MainTest {
 		Joueur joueur1 = new Joueur("joueur1"); 
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
 		assertEquals("15 - 0", result);
@@ -83,8 +83,8 @@ public class MainTest {
 		joueur1.setScorePoint("15");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());//Then
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());//Then
 		assertEquals("30 - 0", result);
 	}
 	
@@ -96,8 +96,8 @@ public class MainTest {
 		joueur1.setScorePoint("30");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		//Then
 		assertEquals("40 - 0", result);
 	}
@@ -113,8 +113,8 @@ public class MainTest {
 		joueur2.setScorePoint("40");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2,partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2,partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
 		assertEquals("A - 40", result);
@@ -133,8 +133,8 @@ public class MainTest {
 		
 		//When
 		//System.out.println(joueur2.getScorePoint()); 
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
 		assertEquals("40 - 40", result);
@@ -153,8 +153,8 @@ public class MainTest {
 		
 		//When
 		//String result = Main.attribuerJeu(joueur1, joueur2);
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
 		
 		
 		//Then
@@ -172,8 +172,8 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
 		assertEquals("0 - 0", result);
@@ -192,8 +192,8 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		//When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		
 		//Then
 		assertEquals("1 - 0", result);
@@ -213,8 +213,8 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		
 		// Then
 		assertEquals("1 - 0", result);
@@ -234,7 +234,7 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		// Then
-		Main.attribuerPoint(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
 		boolean result = partie.isModeDecisif();
 		
 		// When
@@ -253,8 +253,8 @@ public class MainTest {
 		joueur2.setScoreJeu(6);
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
 	
 		// Then
 		assertEquals("1 - 0", result);
@@ -273,8 +273,8 @@ public class MainTest {
 		joueur1.setScorePointDecisif(6);	// 7
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
 	
 		// Then
 		assertEquals("7 - 0", result);
@@ -294,10 +294,10 @@ public class MainTest {
 		joueur2.setScorePointDecisif(5);
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
-		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
-		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = CompteurDeScoreTennis.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = CompteurDeScoreTennis.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		// Then
 		assertEquals("7 - 5", result);	// Point Decisif
 		assertEquals("7 - 6", result2);	// Jeu
@@ -317,10 +317,10 @@ public class MainTest {
 		joueur2.setScorePointDecisif(6);
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
-		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
-		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = CompteurDeScoreTennis.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = CompteurDeScoreTennis.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		// Then
 		assertEquals("8 - 6", result);	// Point Decisif
 		assertEquals("7 - 6", result2);	// Jeu
@@ -339,10 +339,10 @@ public class MainTest {
 		joueur2.setScorePointDecisif(6);
 		
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
-		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
-		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = CompteurDeScoreTennis.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = CompteurDeScoreTennis.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
 		// Then
 		assertEquals("7 - 6", result);	// Point Decisif
 		assertEquals("6 - 6", result2);	// Pas de Jeu
@@ -364,11 +364,11 @@ public class MainTest {
 		joueur2.setScoreSet(1);
 
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.affichePartie(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.affichePartie(joueur1, joueur2, partie);
 
 		//Then
-		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+		assertEquals("Partie gagnee par: " + joueur1.getNom(), result);
 
 	}
 
@@ -386,11 +386,11 @@ public class MainTest {
 		joueur2.setScoreSet(1);
 
 		// When
-		Main.attribuerPoint(joueur2, joueur1,  partie);
-		String result = Main.affichePartie(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur2, joueur1,  partie);
+		String result = CompteurDeScoreTennis.affichePartie(joueur1, joueur2, partie);
 
 		//Then
-		assertEquals("Partie gagnée par: " + joueur2.getNom(), result);
+		assertEquals("Partie gagnee par: " + joueur2.getNom(), result);
 
 	}
 
@@ -407,8 +407,8 @@ public class MainTest {
 
 
 		// When
-		Main.attribuerPoint(joueur2, joueur1, partie);
-		String result = Main.affichePartie(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur2, joueur1, partie);
+		String result = CompteurDeScoreTennis.affichePartie(joueur1, joueur2, partie);
 
 		//Then
 		assertEquals("Partie en cours.", result);
@@ -431,11 +431,11 @@ public class MainTest {
 
 
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.affichePartie(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.affichePartie(joueur1, joueur2, partie);
 
 		//Then
-		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+		assertEquals("Partie gagnee par: " + joueur1.getNom(), result);
 
 	}
 
@@ -451,8 +451,8 @@ public class MainTest {
 		joueur2.setScorePoint("40");
 
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 
 		//Then
 		assertEquals("30 - 40", result);
@@ -473,11 +473,11 @@ public class MainTest {
 		joueur2.setScoreSet(1);
 
 		// When
-		Main.attribuerPoint(joueur1, joueur2, partie);
-		String result = Main.affichePartie(joueur1, joueur2, partie);
+		CompteurDeScoreTennis.attribuerPoint(joueur1, joueur2, partie);
+		String result = CompteurDeScoreTennis.affichePartie(joueur1, joueur2, partie);
 
 		//Then
-		assertEquals("Partie gagnée par: " + joueur1.getNom(), result);
+		assertEquals("Partie gagnee par: " + joueur1.getNom(), result);
 
 	}
 	
