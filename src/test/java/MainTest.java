@@ -173,7 +173,7 @@ public class MainTest {
 	
 	// Quand un joueur arrive à gagner 6 jeux et que son adversaire 4 ou moins jeux gagnés, alors le joueur gagne un set.
 	@Test
-	public void attribuerSetJoueur_6_Joueur_4() {
+	public void attribuerSetJoueurG_6_JoueurP_4() {
 		//Given
 		Joueur joueur1 = new Joueur("joueur1");
 		Joueur joueur2 = new Joueur("joueur2");
@@ -190,6 +190,25 @@ public class MainTest {
 		assertEquals("1 - 0", result);
 	}
 	
+	//Quand les deux joueurs ont 5 points alors faut avoir 2 points d'avance et 7 jeux pour gagner le set.
+	//5 - 5 => pour gagner le set, il faut faire 7 - 5
+	@Test
+	public void attribuerSetJoueurG_6_JoueurP_5() {
+		// Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(5);
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("15");
+		
+		// When
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		
+		// Then
+		assertEquals("1 - 0", result);
+	}
 	
 	
 	

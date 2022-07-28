@@ -65,15 +65,21 @@ public class Main {
 			}
 			else {
 				// Attribution jeu au joueur gagnant
-				int jeu = joueurGagnant.getScoreJeu();
+				int jeu = joueurGagnant.getScoreJeu(); // 6
 				jeu++;
-				joueurGagnant.setScoreJeu(jeu);
+				joueurGagnant.setScoreJeu(jeu); // 7
 				
-				// Attribution set au joueur gagnant
-				if (joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() <= 4) {
+				// Attribution set au joueur gagnant et reset des scores jeu
+				if ((joueurGagnant.getScoreJeu() == 6 && joueurPerdant.getScoreJeu() <= 4) 
+						|| (joueurGagnant.getScoreJeu() == 7 && joueurPerdant.getScoreJeu() == 5)) {
+					// Attribution set
 					int set = joueurGagnant.getScoreSet();
 					set ++;
 					joueurGagnant.setScoreSet(set);
+					
+					// Reset des scores jeu
+					joueurGagnant.setScoreJeu(0);
+					joueurPerdant.setScoreJeu(0);
 				}
 					
 				// Reset des scores point
