@@ -107,11 +107,22 @@ public class Main {
 		//Mode jeu décisif
 		else {
 			int pointDecisif = joueurGagnant.getScorePointDecisif();
-			if (pointDecisif < 7) {
-				pointDecisif ++;
-				joueurGagnant.setScorePointDecisif(pointDecisif);				
+			
+			pointDecisif ++;
+			joueurGagnant.setScorePointDecisif(pointDecisif);
+			
+			if (joueurGagnant.getScorePointDecisif() >= 7) {
+				int ecart = joueurGagnant.getScorePointDecisif() - joueurPerdant.getScorePointDecisif();
+				if (ecart >= 2) {
+					int jeu = joueurGagnant.getScoreJeu();
+					int set = joueurGagnant.getScoreSet();
+					jeu ++;
+					set ++;
+					joueurGagnant.setScoreJeu(jeu);
+					joueurGagnant.setScoreSet(set);
+				}
 			}
-
+			
 		}
 	}
 	

@@ -270,7 +270,7 @@ public class MainTest {
 		Joueur joueur2 = new Joueur("joueur2");
 		joueur1.setScoreJeu(6);
 		joueur2.setScoreJeu(6);
-		joueur1.setScorePointDecisif(7);
+		joueur1.setScorePointDecisif(6);	// 7
 		
 		// When
 		Main.attribuerPoint(joueur1, joueur2, partie);
@@ -278,6 +278,75 @@ public class MainTest {
 	
 		// Then
 		assertEquals("7 - 0", result);
+	}
+	
+	// Il faut avoir deux points d'avance pour gagner le jeu et donc le set.
+	@Test
+	public void attributionJeuDecisif_Set_2PointsEcart_7_5 () {
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		partie.setModeDecisif(true);
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(6);
+		joueur1.setScorePointDecisif(6);	// 7
+		joueur2.setScorePointDecisif(5);
+		
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		// Then
+		assertEquals("7 - 5", result);	// Point Decisif
+		assertEquals("7 - 6", result2);	// Jeu
+		assertEquals("1 - 0", result3); // Set
+	}
+	
+	@Test
+	public void attributionJeuDecisif_Set_2PointsEcart_8_6 () {
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		partie.setModeDecisif(true);
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(6);
+		joueur1.setScorePointDecisif(7);		// 8
+		joueur2.setScorePointDecisif(6);
+		
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		// Then
+		assertEquals("8 - 6", result);	// Point Decisif
+		assertEquals("7 - 6", result2);	// Jeu
+		assertEquals("1 - 0", result3); // Set
+	}
+	@Test
+	public void nonAttributionJeuDecisif_Set_2PointsEcart_7_6 () {
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		partie.setModeDecisif(true);
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(6);
+		joueur1.setScorePointDecisif(6);
+		joueur2.setScorePointDecisif(6);
+		
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+		String result2 = Main.afficheScoreJeu(joueur1.getScoreJeu(), joueur2.getScoreJeu());
+		String result3 = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		// Then
+		assertEquals("7 - 6", result);	// Point Decisif
+		assertEquals("6 - 6", result2);	// Pas de Jeu
+		assertEquals("0 - 0", result3); // Pas de Set
 	}
 	
 	
