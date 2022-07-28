@@ -260,6 +260,26 @@ public class MainTest {
 		assertEquals("1 - 0", result);
 	}
 	
+	// Si un joueur gagne un point pendant un jeu decisif il passe de 0 à 1, puis 2, ... jusqu'à 7
+	@Test
+	public void attributionPointDecisifJusquA7() {
+		// Given
+		Partie partie = new Partie("Match entre joueur1 et joueur 2");
+		partie.setModeDecisif(true);
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(6);
+		joueur2.setScoreJeu(6);
+		joueur1.setScorePointDecisif(7);
+		
+		// When
+		Main.attribuerPoint(joueur1, joueur2, partie);
+		String result = Main.afficheScoreJeuDecisif(joueur1.getScorePointDecisif(), joueur2.getScorePointDecisif());
+	
+		// Then
+		assertEquals("7 - 0", result);
+	}
+	
 	
 	
 	

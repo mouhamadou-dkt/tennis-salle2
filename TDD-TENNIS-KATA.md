@@ -36,7 +36,7 @@ Les joueurs : Il possède un nom.
 
 * Quand les deux joueurs ont 6 jeux gagné, alors on passe en `jeux decisif`.                    -> OK
 * Quand il y a jeu décisif les points sont compté par point.                                    -> OK
-* Si un joueur gagne un point pendant un jeu decisif il passe de 0 à 1, puis 2, ... jusqu'à 7. 
+* Si un joueur gagne un point pendant un jeu decisif il passe de 0 à 1, puis 2, ... jusqu'à 7.  -> OK
 * Il faut avoir deux points d'avance pour gagner le jeu et donc le set.
 
 * Le premier joueur a 2 sets gagnés gagne la partie.
