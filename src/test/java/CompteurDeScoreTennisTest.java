@@ -6,7 +6,7 @@ import entities.Partie;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainTest {
+public class CompteurDeScoreTennisTest {
 
 	@Test
 	public void creerPartie_ReturnPartieCree() {
