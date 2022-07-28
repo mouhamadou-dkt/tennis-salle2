@@ -65,7 +65,7 @@ public class MainTest {
 		Joueur joueur1 = new Joueur("joueur1"); 
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1);
+		Main.attribuerPoint(joueur1, joueur2);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
@@ -80,7 +80,7 @@ public class MainTest {
 		joueur1.setScorePoint("15");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1);
+		Main.attribuerPoint(joueur1, joueur2);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());//Then
 		assertEquals("30 - 0", result);
 	}
@@ -92,7 +92,7 @@ public class MainTest {
 		joueur1.setScorePoint("30");
 		Joueur joueur2 = new Joueur("joueur2");
 		//When
-		Main.attribuerPoint(joueur1);
+		Main.attribuerPoint(joueur1, joueur2);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		//Then
 		assertEquals("40 - 0", result);
@@ -164,12 +164,30 @@ public class MainTest {
 		joueur2.setScorePoint("15");
 		
 		//When
-		//String result = Main.attribuerJeu(joueur1, joueur2);
 		Main.attribuerPoint(joueur1, joueur2);
 		String result = Main.afficheScorePoint(joueur1.getScorePoint(), joueur2.getScorePoint());
 		
 		//Then
 		assertEquals("0 - 0", result);
+	}
+	
+	// Quand un joueur arrive à gagner 6 jeux et que son adversaire 4 ou moins jeux gagnés, alors le joueur gagne un set.
+	@Test
+	public void attribuerSetJoueur_6_Joueur_4() {
+		//Given
+		Joueur joueur1 = new Joueur("joueur1");
+		Joueur joueur2 = new Joueur("joueur2");
+		joueur1.setScoreJeu(5);
+		joueur2.setScoreJeu(4);
+		joueur1.setScorePoint("40");
+		joueur2.setScorePoint("15");
+		
+		//When
+		Main.attribuerPoint(joueur1, joueur2);
+		String result = Main.afficheScoreSet(joueur1.getScoreSet(), joueur2.getScoreSet());
+		
+		//Then
+		assertEquals("1 - 0", result);
 	}
 	
 	

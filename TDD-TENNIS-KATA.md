@@ -31,7 +31,7 @@ Les joueurs : Il possède un nom.
 * Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.                               -> OK
 
 * Quand un jeu est gagné, alors les deux joueurs retournent à 0 point.                                                  -> OK
-* Quand un joueur arrive à gagner 6 jeux et que son adversaire 4 ou moins jeux gagnés, alors le joueur gagne un set.
+* Quand un joueur arrive à gagner 6 jeux et que son adversaire 4 ou moins jeux gagnés, alors le joueur gagne un set.    -> OK
 * Quand les deux joueurs ont 5 points alors faut avoir 2 points d'avance et 7 jeux pour gagner le set.
 
 * Quand les deux joueurs ont 6 jeux gagné, alors on passe en `jeux decisif`.
